@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knockout Login</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <style>
+    .animate-charcter
+        {
+            text-transform: uppercase;
+            background-image: linear-gradient(
+                    -225deg,
+                   #C2B8E0 0%,
+                   #544F61 29%,
+                   #ACA3C7 67%,
+                   #CDC2ED 100%
+            );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #ffffff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+        }
+
+    @keyframes textclip {
+        to {
+            background-position: 200% center;
+        }
+    }
+
+    p  { transition: 0.3s;color: #E6e6e6; font-family: 'Raleway',sans-serif; font-weight: 500;  text-align: center; font-size:120%;}
+    h1 { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+    h1:hover{
+        cursor: context-menu;
+    }
+    
+    p:hover{
+        background-color: rgba(0, 0, 0, 0.021);
+        color:#C2B8E0;
+        cursor: pointer;
+
+    }
+    body {line-height: 1.6; height: 100vh; overflow: hidden;}
+    .container {
+        width: 100%; 
+        height: 100%;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+    }
+    .navbar{
+        font-family: 'Raleway',sans-serif;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        width: 100%;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        justify-content: center;
+    }
+    .navbar ul li {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+    .navbar ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #f4f4f4;
+    }
+    .navbar ul li a:hover {
+        color: C2B8E0;
+    }
+    section {
+		background: #022842 no-repeat center center/cover;;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: center;
+    }
+    /* Section Images */
+    h3 { transition: 0.3s;color: #FAAB05; font-family: 'Montserrat', sans-serif; font-size: 35px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: left; text-transform: uppercase; text-align: center;}
+    h3:hover {
+        color: #C2B8E0;
+        cursor:context-menu;
+    }
+
+.feedback-input:focus { border:2px solid #FAAB05; }
+.feedback-input {
+  color:#E6e6e6;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #E6e6e6;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:50%;
+  box-sizing: border-box;
+  outline:0;
+}
+.feedback-input:hover{
+    border-color: #C2B8E0;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 50%;
+  background: transparent;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  border:2px solid #E6e6e6;
+}
+[type="submit"]:hover { background:#C2B8E0; }; 
+.button_1{
+	padding-left: 150%;
+}
+.button-19 {
+  appearance: button;
+  background-color: #d69404;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 51%;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #FAAB05;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+    </style>
+</head>
+<body>
+    {% load account socialaccount %}
+    <div class="container">
+    <section id="login">
+		
+    <h3>Login</h3>
+	<form method="post" action="/postsignin/">
+		{% csrf_token %}
+    <input class="feedback-input" type="email" name="email" placeholder="Email...">
+    <input class="feedback-input" type="password" name="password" placeholder="Password...">
+    <input class="button-19" type="submit" value="Login">
+	
+	</form>
+	<p>Don't have an account? <a href="/register/" class="ml-2">Sign Up</a></p>
+    <form action="{% provider_login_url 'google' %}" method="post">
+        {% csrf_token %}
+        {% load static %}<input type="image" src="{% static "btn_google_signin_light_normal_web@2x.png" %}" height ="60" width="250" />
+      </form>
+      
+</section>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+    <title>Knockout</title>
+    
+    {% csrf_token %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <style>
+
+.color1 {color: #000000;}
+.color2 {color: #022842;}
+.color3 {color: #0f6193;}
+.color4 {color: #1ba3f0;}
+.color5 {color: #1cedff;}
+/* CSS */
+.button-19 {
+  appearance: button;
+  background-color: #d69404;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #FAAB05;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+    animate-charcter
+        {
+            text-transform: uppercase;
+            background-image: linear-gradient(
+                    -225deg,
+                    #1ba3f0 0%,
+                    #0f6193 29%,
+                    #1ba3f0 67%,
+                    #0f6193 100%
+            );
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #ffffff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 2s linear infinite;
+        }
+        
+    @keyframes textclip {
+        to {
+            background-position: 200% center;
+        }
+    }
+
+    p  { transition: 0.3s;color: #E6e6e6; font-family: 'Raleway',sans-serif; font-weight: 500;  text-align: center; font-size:120%;}
+    h1 { color: #FAAB05; font-family: 'Montserrat', sans-serif; font-size: 55px; font-weight: 800; line-height: 72px; margin: 0 0 1px; text-align: center; text-transform: uppercase; }
+    h1:hover{
+        cursor: context-menu;
+    }
+    
+    p:hover{
+        background-color: rgba(0, 0, 0, 0.021);
+        color:#C2B8E0;
+        cursor: context-menu;
+
+    }
+    body {line-height: 1.6; height: 100vh; overflow: hidden; background-color: #022842;}
+    .container {
+        width: 100%; 
+        height: 100%;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+    }
+    .navbar{
+        font-family: 'Raleway',sans-serif;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        width: 100%;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        justify-content: center;
+    }
+    .navbar ul li {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+    .navbar ul li a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #f4f4f4;
+    }
+    .navbar ul li a:hover {
+        color: C2B8E0;a    }
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        scroll-snap-align: center;
+        background: #022842 no-repeat center center/cover;;
+    }
+    /* Section Images */
+    h3 { transition: 0.3s;color: #FAAB05; font-family: 'Raleway',sans-serif; font-size: 35px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: left; text-transform: uppercase; text-align: center;}
+    h3:hover {
+        color: #C2B8E0;
+        cursor:context-menu;
+    }
+
+.feedback-input:focus { border:2px solid #C2B8E0; }
+.feedback-input {
+  color:#E6e6e6;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #E6e6e6;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+.feedback-input:hover{
+    border-color: #C2B8E0;
+}
+#cookie {
+  
+  position: absolute;
+  bottom: 15px;
+  padding: 1em;
+  align-items: center;
+  background: #07558a;
+  color: #f1f1f1;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 3px rgba(51, 51, 51, 0.25);
+}
+#cookie button {
+  border: 0;
+  background: #f1f1f1;
+  padding: 0.5em;
+  border-radius: inherit;
+  box-shadow: inherit;
+  margin-left: 5px;
+  cursor: pointer;
+}
+#cookie button:hover {
+  background: #fcfcfc;
+  box-shadow: 0 1px 1px rgba(51, 51, 51, 0.5);
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.myBtn{
+    background-color: transparent;
+    color: transparent;
+}
+.Regeln{
+    background-color: transparent;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--<nav class="navbar">
+            <ul>
+                <li><a href="#starttest">JOIN ROOM</a></li>
+                <li><a href="#create">CREATE ROOM</a></li>
+              </ul>
+            </nav>-->
+    <section id="start">
+        <!--{% load static %} <img  src="{% static "LongDrink-removebg-preview.png" %}" alt="TitleIMG">    -->
+        <h1 font-weight: 550; class="animate-charcter">Knockout</h1>
+        <h3 style="font-family: 'Montserrat'; margin-top: 0px; font-size: 35px;">DRUNK</h3>
+        <button onclick="createroom()" style="width: 35%;" class="button-19">START</button>
+        <div id="Regeln">
+            <button id="myBtn" class="button-19" style="margin-top: 20px; height: 42px; width: 120px;" margin-top: 20px; height: 40px; width: 100px;">Regeln</button>
+            
+        </div>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h1>Regeln</h1>
+              <p style="color:#000">Höchststrafe: Das jeweilige Getränk wird ausgetrunken.</p>
+              <p style="color: #000;">Trinkpartner: Wenn einer der Partner eine Strafe bekommt, muss der andere genau die gleiche Anzahl an Schlücken mittrinken.</p>
+            </div>
+          
+          </div>
+        <div id="cookie" role="dialog" aria-label="Cookie consent" aria-describedby="dialogText" hidden>
+            <span id="dialogText">We use cookies, please accept.</span>
+            <button id="button">Accept</button>
+        </div>
+    </section> 
+    <section id="info">
+        <script language="JavaScript" src="https://www.besucherzaehler-kostenlos.de/js/counter.js.php?count=1&id=knockout.sok-solutions.de&start=0&design=1d"></script>
+    </section>
+    <!--<section id="create">
+        <h3 style="margin-bottom:30px ;">Hallo {{request.user}}!</h3>
+        <form style="margin-bottom:20px ;" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+        
+        <button style="margin-bottom:20px ; margin-top: 30px;" class="button-19" value="Login">Login</button>        
+        <form  action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+        
+        <button style="margin-bottom:20px ;" class="button-19" value="Logout">Logout</button>
+    </form>
+        
+    </section>
+    <section id="starttest">
+    <div class="buttonpinout">
+        <h3>JOIN ROOM</h3>
+        <input class="feedback-input" type="number" id="numofq" name="numofq" onblur="getVal()">
+        <button onclick="joinroom()" class="button_1">JOIN</button>
+    </div>
+</section>-->
+
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+const 
+dialog = document.getElementById('cookie'),
+button = document.getElementById('button')
+
+function isConsent() {
+  window.dispatchEvent(new Event('consent'))
+}
+
+function consentCookie() {
+  document.cookie = 'consent=true'
+  dialog.hidden = true
+  isConsent()
+}
+
+button.addEventListener('click', e => consentCookie())
+
+!document.cookie.split(';').find(e => e.trim() === 'consent=true') ? dialog.hidden = false : isConsent()
+function getVal() {
+   const val = document.querySelector('input').value;
+   console.log(val);
+   return val;
+}
+/*
+function joinroom(){
+    let numofq = getVal();
+    let token = '{{ csrf_token }}';
+    let formData = new FormData();
+    formData.append('numofq', numofq)
+    formData.append('csrfmiddlewaretoken', token)
+    fetch('/test/', {
+      method: 'POST',
+      body: formData
+    })
+}
+*/
+function createroom(){
+    let numofq = 1;
+    let token = '{{ csrf_token }}';
+    let formData = new FormData();
+    formData.append('numofq', numofq)
+    formData.append('csrfmiddlewaretoken', token)
+    fetch('/start/', {
+      method: 'POST',
+      body: formData
+    })
+    window.location.replace("{% url 'choice' %}");
+}
+</script> 
+    
+</body>
+</html>
